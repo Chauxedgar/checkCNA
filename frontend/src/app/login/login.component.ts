@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,30 +12,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  datosLogin = {
-    username: '',
-    password: ''
-  };
-
+  datosLogin = { username: '', password: '' };
   mensajeRespuesta = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   iniciarSesion() {
-    if (this.datosLogin.username && this.datosLogin.password) {
-      
-      this.http.post('http://localhost:8000/api/login/', this.datosLogin)
-        .subscribe({
-          next: (respuesta: any) => {
-            this.router.navigate(['/dashboard']);
-          },
-          error: (error) => {
-            this.mensajeRespuesta = 'Error: Credenciales incorrectas o usuario no existe.';
-          }
-        });
-
-    } else {
-      this.mensajeRespuesta = 'Por favor, llena ambos campos.';
-    }
+    this.authService.login(this.datosLogin).subscribe({
+      next: (res) => this.router.navigate(['/dashboard']),
+      error: (err) => this.mensajeRespuesta = 'Credenciales inválidas'
+    });
   }
 }

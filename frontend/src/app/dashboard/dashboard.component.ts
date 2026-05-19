@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavbarComponent } from '../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
+  imports: [NavbarComponent], // <--- Cargamos el Navbar
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'] // Por si luego queremos añadir estilos extra
+  styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
-  
-  constructor(private router: Router) {}
-
-  cerrarSesion() {
-    // Más adelante aquí limpiaremos los datos de sesión, 
-    // por ahora, lo devolvemos a la pantalla de inicio.
-    this.router.navigate(['/login']);
-  }
-}
+export class DashboardComponent {}
