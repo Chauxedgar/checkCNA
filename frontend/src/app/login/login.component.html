@@ -1,0 +1,28 @@
+<div style="text-align: center; margin-top: 100px; font-family: Arial, sans-serif;">
+  <h2>Sistema de Reacreditación</h2>
+  
+  <div style="display: inline-block; padding: 30px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <form (ngSubmit)="iniciarSesion()">
+      
+      <div style="margin-bottom: 15px; text-align: left;">
+        <label><b>Usuario:</b></label><br>
+        <input type="text" name="username" [(ngModel)]="datosLogin.username" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      </div>
+      
+      <div style="margin-bottom: 20px; text-align: left;">
+        <label><b>Contraseña:</b></label><br>
+        <input type="password" name="password" [(ngModel)]="datosLogin.password" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      </div>
+      
+      <button type="submit" style="background-color: #0056b3; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%;">
+        Entrar
+      </button>
+
+    </form>
+    
+    <p style="margin-top: 15px; font-weight: bold; color: #d9534f;">
+      {{ mensajeRespuesta }}
+    </p>
+
+  </div>
+</div>
