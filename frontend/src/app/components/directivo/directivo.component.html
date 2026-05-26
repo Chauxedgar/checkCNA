@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div style="padding: 40px; font-family: Arial, sans-serif;">
+  <div *ngIf="mostrarFormulario" style="background-color: #f1f8ff; padding: 20px; border-radius: 8px; border: 1px solid #b8daff; margin-bottom: 20px;">
+    <h3 style="margin-top: 0; color: #0056b3;">{{ editando ? 'Editar' : 'Nuevo' }} Directivo</h3>
+    <form (ngSubmit)="guardar()" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+      <div><label><b>Documento:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.dni" name="dni" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Nombre:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.nombre" name="nombre" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Teléfono:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.telefono" name="telefono" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Correo:</b></label><br><input type="email" [(ngModel)]="nuevoRegistro.correo" name="correo" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Universidad:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.universidad" name="universidad" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Programa:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.programa" name="programa" required style="width: 100%; padding: 8px;"></div>
+      <div><label><b>Cargo:</b></label><br><input type="text" [(ngModel)]="nuevoRegistro.cargo" name="cargo" required style="width: 100%; padding: 8px;"></div>
+      
+      <div style="grid-column: span 2; text-align: right; margin-top: 10px;">
+        <button type="button" (click)="cerrarForm()" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; margin-right: 10px; cursor: pointer;">Cancelar</button>
+        <button type="submit" style="background-color: #0056b3; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">Guardar</button>
+      </div>
+    </form>
+  </div>
+
+  <app-tabla-generica 
+    titulo="Gestión de Directivos" textoBotonNuevo="+ Nuevo Directivo"
+    [columnas]="columnas" [datos]="listaDirectivos "
+    (clicNuevo)="abrirForm()" (clicEditar)="cargarParaEdicion($event)" (clicEliminar)="eliminar($event)">
+  </app-tabla-generica>
+</div>

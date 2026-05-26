@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, viewsets # Añadimos viewsets aquí
 from django.contrib.auth import authenticate
-from .models import Estudiante, Docente
-from .serializers import EstudianteSerializer, DocenteSerializer
+from .models import Estudiante, Docente, Egresado, Administrativo, Directivo, Empleador
+from .serializers import EstudianteSerializer, DocenteSerializer, EgresadoSerializer, AdministrativoSerializer, DirectivoSerializer, EmpleadorSerializer
 
 class LoginAPIView(APIView):
     # Usamos el método POST porque estamos enviando datos sensibles (contraseñas)
@@ -34,3 +34,19 @@ class EstudianteViewSet(viewsets.ModelViewSet):
 class DocenteViewSet(viewsets.ModelViewSet):
     queryset = Docente.objects.all()
     serializer_class = DocenteSerializer
+
+class EgresadoViewSet(viewsets.ModelViewSet):
+    queryset = Egresado.objects.all()
+    serializer_class = EgresadoSerializer
+
+class AdministrativoViewSet(viewsets.ModelViewSet):
+    queryset = Administrativo.objects.all()
+    serializer_class = AdministrativoSerializer
+
+class DirectivoViewSet(viewsets.ModelViewSet):
+    queryset = Directivo.objects.all()
+    serializer_class = DirectivoSerializer
+
+class EmpleadorViewSet(viewsets.ModelViewSet):
+    queryset = Empleador.objects.all()
+    serializer_class = EmpleadorSerializer

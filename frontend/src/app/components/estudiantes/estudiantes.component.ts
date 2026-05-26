@@ -20,12 +20,13 @@ export class EstudiantesComponent implements OnInit {
 
   nuevoEstudiante = {
     dni: '',
-    nombres: '',
-    semestre: null,
-    correo: '',
+    nombre: '', // <-- Cambiado a singular
     telefono: '',
-    universidad: '',
-    programa: ''
+    correo: '',
+    universidad: 'Universidad de Nariño', // Valores por defecto de tu modelo
+    programa: 'Ingeniería en Producción Acuícola', // Valores por defecto de tu modelo
+    semestre: '', // En tu modelo es CharField, así que usamos comillas en vez de null
+    tipo: 'Estudiante' 
   };
 
   constructor(private estudianteService: EstudianteService) {}
@@ -49,22 +50,22 @@ export class EstudiantesComponent implements OnInit {
     this.mostrarFormulario = false;
     this.editando = false;
     this.idEstudianteActual = null;
-    this.nuevoEstudiante = { dni: '', nombres: '', semestre: null, correo: '', telefono: '', universidad: '', programa: '' };
+    this.nuevoEstudiante = { dni: '', nombre: '', telefono: '', correo: '', universidad: 'Universidad de Nariño', programa: 'Ingeniería en Producción Acuícola', semestre: '', tipo: 'Estudiante' };
   }
 
   // NUEVO: Función que se ejecuta al darle clic al botón amarillo
   cargarDatosParaEdicion(estudiante: any) {
     this.editando = true;
     this.idEstudianteActual = estudiante.id;
-    // Copiamos los datos del estudiante seleccionado al formulario
     this.nuevoEstudiante = { 
       dni: estudiante.dni, 
-      nombres: estudiante.nombres,
-      semestre: estudiante.semestre,
-      correo: estudiante.correo,
+      nombre: estudiante.nombre, // <-- Singular
       telefono: estudiante.telefono,
+      correo: estudiante.correo,
       universidad: estudiante.universidad,
-      programa: estudiante.programa
+      programa: estudiante.programa,
+      semestre: estudiante.semestre,
+      tipo: estudiante.tipo // <-- Incluimos tipo
     };
     this.abrirForm();
   }

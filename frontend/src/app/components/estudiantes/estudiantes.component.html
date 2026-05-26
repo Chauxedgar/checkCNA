@@ -12,67 +12,85 @@
 
     <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
     <div *ngIf="mostrarFormulario" style="background-color: #f1f8ff; padding: 20px; border-radius: 8px; border: 1px solid #b8daff; margin-bottom: 20px;">
-  <h3 style="margin-top: 0; color: #0056b3;">
-    {{ editando ? 'Editar Estudiante' : 'Registrar Nuevo Estudiante' }}
-  </h3>
-    <form (ngSubmit)="guardarEstudiante()" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-      <div>
-        <label><b>Documento (DNI):</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEstudiante.dni" name="dni" required style="width: 100%; padding: 8px; margin-top: 5px;">
-      
-      </div>
-      <div>
-        <label><b>Semestre:</b></label><br>
-        <input type="number" [(ngModel)]="nuevoEstudiante.semestre" name="semestre" min="1" max="10" required style="width: 100%; padding: 8px; margin-top: 5px;">
-      
-      </div>
-      <div>
-        <label><b>Nombres:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEstudiante.nombres" name="nombres" required style="width: 100%; padding: 8px; margin-top: 5px;">
-      
-      </div>
-      <div>
-        <label><b>Apellidos:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEstudiante.apellidos" name="apellidos" required style="width: 100%; padding: 8px; margin-top: 5px;">
-      
-      </div>
-      <div style="grid-column: span 2; text-align: right; margin-top: 10px;">
-        <button type="button" (click)="cerrarForm()" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 10px;">Cancelar</button>
-        <button type="submit" style="background-color: #0056b3; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-          {{ editando ? 'Actualizar Datos' : 'Guardar Estudiante' }}
-        </button>
-      </div>
-    
-    </form>
-  
-  </div>
+      <h3 style="margin-top: 0; color: #0056b3;">
+        {{ editando ? 'Editar Estudiante' : 'Registrar Nuevo Estudiante' }}
+      </h3>
+      <form (ngSubmit)="guardarEstudiante()" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div>
+          <label><b>Documento (DNI):</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.dni" name="dni" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Nombre:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.nombre" name="nombre" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Teléfono:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.telefono" name="telefono" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Correo:</b></label><br>
+          <input type="email" [(ngModel)]="nuevoEstudiante.correo" name="correo" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Semestre:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.semestre" name="semestre" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Tipo:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.tipo" name="tipo" placeholder="Ej: Pregrado" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Universidad:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.universidad" name="universidad" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        <div>
+          <label><b>Programa:</b></label><br>
+          <input type="text" [(ngModel)]="nuevoEstudiante.programa" name="programa" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+
+        <div style="grid-column: span 2; text-align: right; margin-top: 10px;">
+          <button type="button" (click)="cerrarForm()" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 10px;">Cancelar</button>
+          <button type="submit" style="background-color: #0056b3; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+            {{ editando ? 'Actualizar Datos' : 'Guardar Estudiante' }}
+          </button>
+        </div>
+      </form>
+    </div>
 
     <table style="width: 100%; border-collapse: collapse; text-align: left;">
       <thead>
         <tr style="background-color: #0056b3; color: white;">
           <th style="padding: 12px; border: 1px solid #ddd;">ID</th>
-          <th style="padding: 12px; border: 1px solid #ddd;">Documento</th>
-          <th style="padding: 12px; border: 1px solid #ddd;">Nombres</th>
-          <th style="padding: 12px; border: 1px solid #ddd;">Apellidos</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">DNI</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Nombre</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Teléfono</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Correo</th>
           <th style="padding: 12px; border: 1px solid #ddd;">Semestre</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Tipo</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Universidad</th>
+          <th style="padding: 12px; border: 1px solid #ddd;">Programa</th>
           <th style="padding: 12px; border: 1px solid #ddd;">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let estudiante of listaEstudiantes" style="background-color: #f9f9f9; border-bottom: 1px solid #eee;">
           <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.id }}</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.documento }}</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.nombres }}</td>
-          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.apellidos }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.dni }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.nombre }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.telefono }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.correo }}</td>
           <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.semestre }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.tipo }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.universidad }}</td>
+          <td style="padding: 12px; border: 1px solid #ddd;">{{ estudiante.programa }}</td>
           <td style="padding: 12px; border: 1px solid #ddd;">
             <button (click)="cargarDatosParaEdicion(estudiante)" style="background-color: #ffc107; color: #333; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-right: 5px;">Editar</button>
             <button (click)="eliminarEstudiante(estudiante.id)" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
           </td>
         </tr>
-        
         <tr *ngIf="listaEstudiantes.length === 0">
-          <td colspan="6" style="padding: 20px; text-align: center; color: #777;">
+          <td colspan="10" style="padding: 20px; text-align: center; color: #777;">
             No hay estudiantes registrados aún.
           </td>
         </tr>
