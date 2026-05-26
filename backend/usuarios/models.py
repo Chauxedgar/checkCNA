@@ -16,7 +16,7 @@ class Superusuario(models.Model):
 
 class Estudiante(models.Model):
     id = models.AutoField(primary_key=True)
-    dni = models.ForeignKey(Superusuario, on_delete=models.CASCADE) # fk1
+    dni = models.CharField(max_length=20, unique=True, verbose_name="Documento de Identidad") # fk1
     nombre = models.CharField(max_length=255)
     telefono = models.CharField(max_length=10)
     correo = models.CharField(max_length=255)

@@ -1,7 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets # Añadimos viewsets aquí
 from django.contrib.auth import authenticate
+from .models import Estudiante, Docente
+from .serializers import EstudianteSerializer, DocenteSerializer
 
 class LoginAPIView(APIView):
     # Usamos el método POST porque estamos enviando datos sensibles (contraseñas)
@@ -25,3 +27,10 @@ class LoginAPIView(APIView):
             return Response({
                 "error": "Credenciales inválidas. Por favor verifique."
             }, status=status.HTTP_401_UNAUTHORIZED)
+class EstudianteViewSet(viewsets.ModelViewSet):
+    queryset = Estudiante.objects.all()
+    serializer_class = EstudianteSerializer
+
+class DocenteViewSet(viewsets.ModelViewSet):
+    queryset = Docente.objects.all()
+    serializer_class = DocenteSerializer
