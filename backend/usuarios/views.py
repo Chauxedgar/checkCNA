@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 from rest_framework import status, viewsets # Añadimos viewsets aquí
 from django.contrib.auth import authenticate
 from .models import Estudiante, Docente, Egresado, Administrativo, Directivo, Empleador
@@ -50,3 +51,16 @@ class DirectivoViewSet(viewsets.ModelViewSet):
 class EmpleadorViewSet(viewsets.ModelViewSet):
     queryset = Empleador.objects.all()
     serializer_class = EmpleadorSerializer
+class DashboardStatsViewSet(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, format=None):
+        data = {
+            'estudiantes': Estudiante.objects.count(),
+            'docentes': Docente.objects.count(),
+            'egresados': Egresado.objects.count(),
+            'administrativos': Administrativo.objects.count(),
+            'directivos': Directivo.objects.count(),
+            'empleadores': Empleador.objects.count(),
+        }
+        return Response(data)

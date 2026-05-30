@@ -6,13 +6,13 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { TablaGenericaComponent } from '../tabla-generica/tabla-generica.component';
 
 @Component({
-  selector: 'app-directivos',
+  selector: 'app-directivo',
   standalone: true,
   imports: [CommonModule, NavbarComponent, FormsModule, TablaGenericaComponent],
-  templateUrl: './directivos.component.html',
-  styleUrls: ['./directivos.component.css']
+  templateUrl: './directivo.component.html',
+  styleUrls: ['./directivo.component.css']
 })
-export class DirectivosComponent implements OnInit {
+export class DirectivoComponent implements OnInit {
   listaDirectivos: any[] = [];
   mostrarFormulario = false;
   editando = false;

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  # Para la API REST#
     'corsheaders',  # Para conectar Angular con Django#
     'usuarios', # Aplicación para gestionar usuarios#
-    
+    'evaluacion', # Aplicación para gestionar evaluaciones#    
 ]
 
 MIDDLEWARE = [

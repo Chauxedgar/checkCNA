@@ -6,13 +6,13 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { TablaGenericaComponent } from '../tabla-generica/tabla-generica.component';
 
 @Component({
-  selector: 'app-empleadores',
+  selector: 'app-empleador',
   standalone: true,
   imports: [CommonModule, NavbarComponent, FormsModule, TablaGenericaComponent],
-  templateUrl: './empleadores.component.html',
-  styleUrls: ['./empleadores.component.css']
+  templateUrl: './empleador.component.html',
+  styleUrls: ['./empleador.component.css']
 })
-export class EmpleadoresComponent implements OnInit {
+export class EmpleadorComponent implements OnInit {
   listaEmpleadores: any[] = [];
   mostrarFormulario = false;
   editando = false;

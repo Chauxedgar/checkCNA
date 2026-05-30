@@ -1,7 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import EmpleadorViewSet, LoginAPIView, EstudianteViewSet, DocenteViewSet, EgresadoViewSet, AdministrativoViewSet, DirectivoViewSet
-
+from .views import EstudianteViewSet, DocenteViewSet, EgresadoViewSet, AdministrativoViewSet, DirectivoViewSet, EmpleadorViewSet, DashboardStatsViewSet
 # El router crea automáticamente las rutas GET, POST, PUT y DELETE
 router = DefaultRouter()
 router.register(r'estudiantes', EstudianteViewSet)
@@ -13,8 +12,6 @@ router.register(r'empleadores', EmpleadorViewSet)
 
 urlpatterns = [
     # Ruta manual para el login
-    path('login/', LoginAPIView.as_view(), name='api_login'),
-    
-    # Rutas automáticas para las tablas
+    path('dashboard/stats/', DashboardStatsViewSet.as_view(), name='dashboard-stats'), # <-- RUTA NUEVA
     path('', include(router.urls)),
 ]

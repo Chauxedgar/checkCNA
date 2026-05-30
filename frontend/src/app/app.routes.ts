@@ -7,6 +7,7 @@ import { EgresadosComponent } from './components/egresados/egresados.component';
 import { AdministrativosComponent } from './components/administrativos/administrativos.component';
 import { DirectivoComponent } from './components/directivo/directivo.component';
 import { EmpleadorComponent } from './components/empleador/empleador.component';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'administrativos', component: AdministrativosComponent },
   { path: 'directivos', component: DirectivoComponent },
-  { path: 'empleadores', component: EmpleadorComponent }
+  { path: 'empleadores', component: EmpleadorComponent },
+  { path: 'preguntas', component: PreguntasComponent },
 ];

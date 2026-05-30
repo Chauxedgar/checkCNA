@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div style="padding: 40px; font-family: Arial, sans-serif;">
+  
+  <div *ngIf="mostrarFormulario" style="background-color: #f1f8ff; padding: 20px; border-radius: 8px; border: 1px solid #b8daff; margin-bottom: 20px;">
+    <h3 style="margin-top: 0; color: #0056b3;">{{ editando ? 'Editar Pregunta' : 'Nueva Pregunta' }}</h3>
+    
+    <form (ngSubmit)="guardar()" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+      
+      <div>
+        <label><b>Seleccione el Indicador al que pertenece:</b></label><br>
+        <select [(ngModel)]="nuevaPregunta.indicador" name="indicador" required style="width: 100%; padding: 8px; margin-top: 5px;">
+          <option value="" disabled selected>-- Elija un indicador --</option>
+          <option *ngFor="let ind of listaIndicadores" [value]="ind.id">
+            Indicador {{ ind.numero }}: {{ ind.descripcion }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label><b>¿A qué estamento va dirigida esta pregunta?</b></label><br>
+        <select [(ngModel)]="nuevaPregunta.estamento_dirigido" name="estamento_dirigido" required style="width: 100%; padding: 8px; margin-top: 5px;">
+          <option value="" disabled selected>-- Elija el público objetivo --</option>
+          <option *ngFor="let estamento of estamentosDisponibles" [value]="estamento">
+            {{ estamento }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label><b>Enunciado de la Pregunta:</b></label><br>
+        <textarea [(ngModel)]="nuevaPregunta.enunciado" name="enunciado" rows="3" placeholder="Ej: ¿Considera usted que los procesos de admisión son equitativos?" required style="width: 100%; padding: 8px; margin-top: 5px; resize: vertical;"></textarea>
+      </div>
+      
+      <div style="text-align: right; margin-top: 10px;">
+        <button type="button" (click)="cerrarForm()" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; margin-right: 10px; cursor: pointer;">Cancelar</button>
+        <button type="submit" style="background-color: #0056b3; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+          {{ editando ? 'Actualizar' : 'Guardar al Banco' }}
+        </button>
+      </div>
+      
+    </form>
+  </div>
+
+  <app-tabla-generica 
+    titulo="Banco de Preguntas Institucional" 
+    textoBotonNuevo="+ Redactar Pregunta"
+    [columnas]="columnas" 
+    [datos]="listaPreguntas"
+    (clicNuevo)="abrirForm()" 
+    (clicEditar)="cargarParaEdicion($event)" 
+    (clicEliminar)="eliminar($event)">
+  </app-tabla-generica>
+
+</div>

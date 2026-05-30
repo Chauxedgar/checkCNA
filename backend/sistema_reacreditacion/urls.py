@@ -8,4 +8,5 @@ urlpatterns = [
     # Aquí conectamos todas las rutas de nuestra aplicación "usuarios"
     # El prefijo será 'api/', por lo que la ruta final será 'api/login/'
     path('api/', include('usuarios.urls')),
+    path('api/evaluacion/', include('evaluacion.urls')),
 ]
