@@ -8,6 +8,8 @@ import { AdministrativosComponent } from './components/administrativos/administr
 import { DirectivoComponent } from './components/directivo/directivo.component';
 import { EmpleadorComponent } from './components/empleador/empleador.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
+import { AccesoEncuestaComponent } from './components/acceso-encuesta/acceso-encuesta.component';
+import {EncuestaComponent} from "./components/encuesta/encuesta.component";
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,4 +22,6 @@ export const routes: Routes = [
   { path: 'directivos', component: DirectivoComponent },
   { path: 'empleadores', component: EmpleadorComponent },
   { path: 'preguntas', component: PreguntasComponent },
+  { path: 'acceso-encuesta', component: AccesoEncuestaComponent }, // Nueva ruta
+  { path: 'encuesta', component: EncuestaComponent }, // Nueva ruta
 ];

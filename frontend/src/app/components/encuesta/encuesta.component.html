@@ -1,0 +1,57 @@
+<div style="min-height: 100vh; background-color: #f4f7f6; padding: 40px 20px; font-family: Arial, sans-serif;">
+  
+  <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    
+    <div *ngIf="encuestaCompletada" style="text-align: center; padding: 50px 0;">
+      <h2 style="color: #28a745; margin-bottom: 20px;">¡Gracias por su participación!</h2>
+      <p style="color: #666; font-size: 16px; margin-bottom: 30px;">
+        Sus respuestas han sido registradas de manera exitosa. Su aporte es fundamental para el proceso de autoevaluación del programa.
+      </p>
+      <button (click)="salir()" style="background-color: #0056b3; color: white; border: none; padding: 12px 24px; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px;">
+        Finalizar y Salir
+      </button>
+    </div>
+
+    <div *ngIf="!encuestaCompletada">
+      
+      <div style="border-bottom: 2px solid #0056b3; padding-bottom: 20px; margin-bottom: 30px;">
+        <h2 style="color: #0056b3; margin: 0;">Instrumento de Autoevaluación</h2>
+        <p style="color: #666; margin: 5px 0 0 0;">
+          <b>Estamento Activo:</b> {{ estamentoActivo }}
+        </p>
+      </div>
+
+      <div *ngIf="preguntas.length === 0" style="text-align: center; padding: 30px; color: #666; background-color: #f8f9fa; border-radius: 6px;">
+        No hay preguntas asignadas para su estamento en este momento.
+      </div>
+
+      <form (ngSubmit)="enviarEncuesta()" *ngIf="preguntas.length > 0">
+        
+        <div *ngFor="let pregunta of preguntas; let i = index" style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+          
+          <h4 style="margin-top: 0; color: #333; font-size: 16px;">{{ i + 1 }}. {{ pregunta.enunciado }}</h4>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+            <label *ngFor="let opcion of escalaLikert" style="display: flex; align-items: center; cursor: pointer; font-size: 15px; color: #555;">
+              <input type="radio" 
+                     [name]="'pregunta_' + pregunta.id" 
+                     [value]="opcion.valor" 
+                     [(ngModel)]="respuestas[pregunta.id]" 
+                     required
+                     style="margin-right: 12px; transform: scale(1.2);">
+              {{ opcion.texto }}
+            </label>
+          </div>
+
+        </div>
+
+        <button type="submit" [disabled]="enviando" 
+                style="width: 100%; padding: 15px; background-color: #28a745; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 18px; margin-top: 20px; transition: background-color 0.3s;">
+          {{ enviando ? 'Guardando respuestas...' : 'Enviar Evaluación' }}
+        </button>
+        
+      </form>
+    </div>
+
+  </div>
+</div>
