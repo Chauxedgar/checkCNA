@@ -1,26 +1,64 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+
   @ViewChild('graficaParticipacion') graficaCanvas!: ElementRef;
   chart: any;
+  // ... (debajo de tu variable estadisticas)
+  estamentoSeleccionado: string | null = null;
+  listaDetalle: any[] = [];
+  filtroTexto: string = '';
+
+  // ... (debajo de tus otras funciones, como dibujarChart)
+
+  // 1. Función que se activa al hacer clic en una tarjeta
+  verDetalle(estamento: string) {
+    this.estamentoSeleccionado = estamento;
+    this.filtroTexto = ''; // Limpiamos el buscador al cambiar de tarjeta
+    this.http.get<any[]>(`http://localhost:8000/api/evaluacion/detalle-participacion/${estamento}/`).subscribe({
+      next: (datos) => this.listaDetalle = datos,
+      error: (err) => console.error('Error cargando detalle', err)
+    });
+  }
+
+  // 2. Motor del buscador en tiempo real
+  get usuariosFiltrados() {
+    if (!this.filtroTexto) return this.listaDetalle;
+    const buscar = this.filtroTexto.toLowerCase();
+    return this.listaDetalle.filter(u => 
+      (u.nombre && u.nombre.toLowerCase().includes(buscar)) ||
+      (u.dni && u.dni.toLowerCase().includes(buscar)) ||
+      (u.estado && u.estado.toLowerCase().includes(buscar))
+    );
+  }
+
+
+  cerrarDetalle() {
+    this.estamentoSeleccionado = null;
+  }
   
+
+
+
   // 1. Restauramos la variable para tus tarjetas originales
   estadisticas: any = {
     estudiantes: 0, docentes: 0, egresados: 0, 
     administrativos: 0, directivos: 0, empleadores: 0
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.cargarEstadisticas();
@@ -76,9 +114,30 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         },
         scales: {
           x: { stacked: true },
-          y: { stacked: true, beginAtZero: true }
+          y: { stacked: true, beginAtZero: true, ticks: { stepSize: 1 } }
         }
       }
     });
+
+  }
+  cerrarSesion() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+  descargarInformeWord() {
+    // Es crucial indicarle a Angular que vamos a recibir un archivo (blob), no un texto JSON
+    this.http.get('http://localhost:8000/api/evaluacion/informe-word/', { responseType: 'blob' })
+      .subscribe({
+        next: (blob) => {
+          // Lógica del navegador para forzar la descarga del archivo
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'Informe_Autoevaluacion_IPA.docx';
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        error: (err) => alert('Hubo un error al generar el documento.')
+      });
   }
 }

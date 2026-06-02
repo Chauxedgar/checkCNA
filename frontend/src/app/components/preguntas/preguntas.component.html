@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 
 <div style="padding: 40px; font-family: Arial, sans-serif;">
+  <button routerLink="/dashboard" 
+  style="margin-bottom: 20px; padding: 10px 20px; background-color: #6c757d; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.3s;">
+  ⬅ Volver al Dashboard
+  
+</button>
   
   <div *ngIf="mostrarFormulario" style="background-color: #f1f8ff; padding: 20px; border-radius: 8px; border: 1px solid #b8daff; margin-bottom: 20px;">
     <h3 style="margin-top: 0; color: #0056b3;">{{ editando ? 'Editar Pregunta' : 'Nueva Pregunta' }}</h3>
@@ -15,6 +20,7 @@
             Indicador {{ ind.numero }}: {{ ind.descripcion }}
           </option>
         </select>
+        
       </div>
 
       <div>

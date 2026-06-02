@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { PreguntaService } from '../../services/pregunta.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TablaGenericaComponent } from '../tabla-generica/tabla-generica.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-preguntas',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FormsModule, TablaGenericaComponent],
+  imports: [CommonModule, NavbarComponent, FormsModule, TablaGenericaComponent, RouterModule],
   templateUrl: './preguntas.component.html',
   styleUrls: ['./preguntas.component.css']
 })

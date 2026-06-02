@@ -1,6 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import FactorViewSet, CaracteristicaViewSet, IndicadorViewSet, PreguntaViewSet, ValidarAccesoEncuestaView, CuestionarioView, GraficaParticipacionView
+from .views import (FactorViewSet, CaracteristicaViewSet, IndicadorViewSet, 
+                    PreguntaViewSet, ValidarAccesoEncuestaView, CuestionarioView, 
+                    GraficaParticipacionView, LoginAdminView, DetalleParticipacionView,
+                    GenerarInformeWordView)
 
 router = DefaultRouter()
 router.register(r'factores', FactorViewSet)
@@ -16,7 +19,10 @@ urlpatterns = [
     path('cuestionario/', CuestionarioView.as_view(), name='guardar-cuestionario'), 
     path('cuestionario/<str:estamento>/', CuestionarioView.as_view(), name='obtener-cuestionario'), 
     path('grafica-participacion/', GraficaParticipacionView.as_view(), name='grafica-participacion/'),
+    path('detalle-participacion/<str:estamento>/', DetalleParticipacionView.as_view(), name='detalle-participacion'),
 
     # Rutas automáticas
     path('', include(router.urls)),
+    path('informe-word/', GenerarInformeWordView.as_view(), name='informe-word'),
+
 ]
