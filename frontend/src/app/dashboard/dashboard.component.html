@@ -1,187 +1,374 @@
 <div style="padding: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; min-height: 100vh;">
-  
+
+ 
+
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 20px;">
+
     <h2 style="color: #0056b3; margin: 0; font-size: 28px;">Centro de Mando - Acreditación IPA</h2>
-    
-    <button (click)="cerrarSesion()" 
+
+   
+
+    <button (click)="cerrarSesion()"
+
             style="padding: 10px 20px; background-color: #dc3545; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.3s;">
+
       🚪 Cerrar Sesión
+
     </button>
+
   </div>
 
+
+
   <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 40px; border-top: 4px solid #6c757d;">
+
     <h4 style="margin-top: 0; color: #777; margin-bottom: 15px; font-size: 14px; text-transform: uppercase;">Módulos del Sistema</h4>
-    
+
+   
+
     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-      
-      <button routerLink="/preguntas" 
+
+     
+
+      <button routerLink="/preguntas"
+
               style="padding: 10px 18px; background-color: #0056b3; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: background-color 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
         📝 Gestionar Preguntas
+
       </button>
-      <button (click)="descargarInformeWord()" 
+
+      <button (click)="descargarInformeWord()"
+
               style="padding: 10px 18px; background-color: #28a745; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: background-color 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
         📄 Exportar Informe (Word)
+
       </button>
+
+
 
       <div style="width: 2px; background-color: #eee; margin: 0 5px;"></div>
 
-      <button routerLink="/estudiantes" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/estudiantes"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         🎓 Estudiantes
+
       </button>
 
-      <button routerLink="/docentes" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/docentes"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         💼 Docentes
+
       </button>
 
-      <button routerLink="/egresados" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/egresados"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         📜 Egresados
+
       </button>
 
-      <button routerLink="/administrativos" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/administrativos"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         🗂️ Administrativos
+
       </button>
 
-      <button routerLink="/directivos" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/directivos"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         🏛️ Directivos
+
       </button>
 
-      <button routerLink="/empleadores" 
-              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;" 
-              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'" 
+
+
+      <button routerLink="/empleadores"
+
+              style="padding: 10px 15px; background-color: #f8f9fa; color: #333; border: 1px solid #ced4da; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; transition: all 0.2s;"
+
+              onmouseover="this.style.backgroundColor='#e2e6ea'; this.style.borderColor='#dae0e5'"
+
               onmouseout="this.style.backgroundColor='#f8f9fa'; this.style.borderColor='#ced4da'">
+
         🏢 Empleadores
+
       </button>
+
+
 
     </div>
+
   </div>
+
+
 
   <h2 style="color: #333; margin-bottom: 20px; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">Resumen de Población Registrada <span style="font-size: 14px; color: #777; text-transform: none;">(Clic para auditar)</span></h2>
-  
+
+ 
+
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px;">
-    
-    <div (click)="verDetalle('Estudiantes')" 
+
+   
+
+    <div (click)="verDetalle('Estudiantes')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #0056b3; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Estudiantes</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.estudiantes }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #0056b3; opacity: 0.2;">🎓</div>
+
     </div>
 
-    <div (click)="verDetalle('Docentes')" 
+
+
+    <div (click)="verDetalle('Docentes')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #28a745; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Docentes</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.docentes }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #28a745; opacity: 0.2;">💼</div>
+
     </div>
 
-    <div (click)="verDetalle('Egresados')" 
+
+
+    <div (click)="verDetalle('Egresados')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #ffc107; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Egresados</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.egresados }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #ffc107; opacity: 0.2;">📜</div>
+
     </div>
 
-    <div (click)="verDetalle('Administrativos')" 
+
+
+    <div (click)="verDetalle('Administrativos')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #17a2b8; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Administrativos</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.administrativos }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #17a2b8; opacity: 0.2;">🗂️</div>
+
     </div>
 
-    <div (click)="verDetalle('Directivos')" 
+
+
+    <div (click)="verDetalle('Directivos')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #6f42c1; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Directivos</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.directivos }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #6f42c1; opacity: 0.2;">🏛️</div>
+
     </div>
 
-    <div (click)="verDetalle('Empleadores')" 
+
+
+    <div (click)="verDetalle('Empleadores')"
+
          style="background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #e83e8c; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'" 
+
+         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.1)'"
+
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.05)'">
+
       <div>
+
         <h4 style="margin: 0; color: #777; font-size: 14px; text-transform: uppercase;">Empleadores</h4>
+
         <p style="margin: 5px 0 0 0; font-size: 32px; font-weight: bold; color: #333;">{{ estadisticas.empleadores }}</p>
+
       </div>
+
       <div style="font-size: 40px; color: #e83e8c; opacity: 0.2;">🏢</div>
+
     </div>
-    
+
+   
+
   </div>
+
+
 
   <div *ngIf="estamentoSeleccionado" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 40px; border-top: 4px solid #0056b3;">
-    
+
+   
+
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px;">
+
       <h3 style="margin: 0; color: #333; font-size: 22px;">Resultados: <span style="color: #0056b3;">{{ estamentoSeleccionado }}</span></h3>
+
       <button (click)="cerrarDetalle()" style="background-color: transparent; color: #dc3545; border: 1px solid #dc3545; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#dc3545'; this.style.color='white'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#dc3545'">✖ Cerrar Panel</button>
+
     </div>
 
-    <input type="text" [(ngModel)]="filtroTexto" placeholder="🔍 Buscar por DNI, nombre o estado..." 
+
+
+    <input type="text" [(ngModel)]="filtroTexto" placeholder="🔍 Buscar por DNI, nombre o estado..."
+
            style="width: 100%; padding: 12px 15px; margin-bottom: 20px; border: 1px solid #ced4da; border-radius: 6px; font-size: 15px; background-color: #f8f9fa; outline: none; box-sizing: border-box;">
 
+
+
     <div style="max-height: 400px; overflow-y: auto; border: 1px solid #eee; border-radius: 6px;">
+
       <table style="width: 100%; border-collapse: collapse;">
+
         <thead style="background-color: #f1f8ff; position: sticky; top: 0; z-index: 1;">
+
           <tr>
+
             <th style="padding: 15px; text-align: left; border-bottom: 2px solid #c8e1ff; color: #0056b3;">DNI</th>
+
             <th style="padding: 15px; text-align: left; border-bottom: 2px solid #c8e1ff; color: #0056b3;">Nombre Completo</th>
+
             <th style="padding: 15px; text-align: center; border-bottom: 2px solid #c8e1ff; color: #0056b3;">Estado Encuesta</th>
+
           </tr>
+
         </thead>
+
         <tbody>
+
           <tr *ngFor="let usuario of usuariosFiltrados" style="border-bottom: 1px solid #eee; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='transparent'">
+
             <td style="padding: 15px; color: #555;">{{ usuario.dni }}</td>
+
             <td style="padding: 15px; color: #333; font-weight: 500;">{{ usuario.nombre }}</td>
+
             <td style="padding: 15px; text-align: center;">
-              <span [ngStyle]="{'background-color': usuario.estado === 'Completado' ? '#28a745' : '#ffc107', 'color': usuario.estado === 'Completado' ? 'white' : '#333'}" 
+
+              <span [ngStyle]="{'background-color': usuario.estado === 'Completado' ? '#28a745' : '#ffc107', 'color': usuario.estado === 'Completado' ? 'white' : '#333'}"
+
                     style="padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; display: inline-block; min-width: 90px;">
+
                 {{ usuario.estado === 'Completado' ? '✅ Completado' : '⏳ Pendiente' }}
+
               </span>
+
             </td>
+
           </tr>
+
           <tr *ngIf="usuariosFiltrados.length === 0">
+
             <td colspan="3" style="text-align: center; padding: 30px; color: #777; font-style: italic;">No se encontraron usuarios que coincidan con la búsqueda.</td>
+
           </tr>
+
         </tbody>
+
       </table>
+
     </div>
+
   </div>
+
+
 
   <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 20px;">
+
     <canvas #graficaParticipacion></canvas>
+
   </div>
 
-</div>
+
+
+</div> 
+

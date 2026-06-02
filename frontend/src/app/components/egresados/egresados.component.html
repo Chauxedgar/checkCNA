@@ -1,55 +1,66 @@
 <app-navbar></app-navbar>
 
-<div style="padding: 40px; font-family: Arial, sans-serif;">
+<div class="page-container">
   
-  <div *ngIf="mostrarFormulario" style="background-color: #f1f8ff; padding: 20px; border-radius: 8px; border: 1px solid #b8daff; margin-bottom: 20px;">
-    <h3 style="margin-top: 0; color: #0056b3;">
+  <div *ngIf="mostrarFormulario" class="form-container">
+    <h3 class="form-title">
       {{ editando ? 'Editar Egresado' : 'Registrar Nuevo Egresado' }}
     </h3>
-    <form (ngSubmit)="guardarEgresado()" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+    
+    <form (ngSubmit)="guardarEgresado()" class="grid-form">
       
-      <div>
-        <label><b>Cédula:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.dni" name="dni" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      <div class="form-group">
+        <label class="form-label">Cédula:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.dni" name="dni" required class="form-control">
       </div>
-      <div>
-        <label><b>Nombre:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.nombre" name="nombre" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Nombre:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.nombre" name="nombre" required class="form-control">
       </div>
-      <div>
-        <label><b>Teléfono:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.telefono" name="telefono" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Teléfono:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.telefono" name="telefono" required class="form-control">
       </div>
-      <div>
-        <label><b>Correo:</b></label><br>
-        <input type="email" [(ngModel)]="nuevoEgresado.correo" name="correo" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Correo:</label>
+        <input type="email" [(ngModel)]="nuevoEgresado.correo" name="correo" required class="form-control">
       </div>
-      <div>
-        <label><b>Tipo:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.tipo" name="tipo" placeholder="Ej: Profesional" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Tipo:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.tipo" name="tipo" placeholder="Ej: Profesional" required class="form-control">
       </div>
-      <div>
-        <label><b>Rol:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.rol" name="rol" placeholder="Ej: Gerente / Analista" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Rol:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.rol" name="rol" placeholder="Ej: Gerente / Analista" required class="form-control">
       </div>
-      <div>
-        <label><b>Universidad:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.universidad" name="universidad" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Universidad:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.universidad" name="universidad" required class="form-control">
       </div>
-      <div>
-        <label><b>Programa:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.programa" name="programa" required style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Programa:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.programa" name="programa" required class="form-control">
       </div>
-      <div>
-        <label><b>Empresa:</b></label><br>
-        <input type="text" [(ngModel)]="nuevoEgresado.empresa" name="empresa" placeholder="Nombre de la empresa" style="width: 100%; padding: 8px; margin-top: 5px;">
+      
+      <div class="form-group">
+        <label class="form-label">Empresa:</label>
+        <input type="text" [(ngModel)]="nuevoEgresado.empresa" name="empresa" placeholder="Nombre de la empresa" class="form-control">
       </div>
-      <div style="grid-column: span 2; text-align: right; margin-top: 10px;">
-        <button type="button" (click)="cerrarForm()" style="background-color: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 10px;">Cancelar</button>
-        <button type="submit" style="background-color: #0056b3; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+
+      <div class="form-actions">
+        <button type="button" (click)="cerrarForm()" class="btn btn-secondary">Cancelar</button>
+        <button type="submit" class="btn btn-primary">
           {{ editando ? 'Actualizar Datos' : 'Guardar Egresado' }}
         </button>
       </div>
+      
     </form>
   </div>
 

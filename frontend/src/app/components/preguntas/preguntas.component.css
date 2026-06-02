@@ -1,0 +1,111 @@
+/* Contenedor principal de la página */
+.page-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+/* Botón de volver al dashboard */
+.btn-back {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+  background-color: #5a6268;
+}
+
+/* Contenedor del formulario emergente */
+.form-container {
+  background-color: #f1f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #b8daff;
+  margin-bottom: 20px;
+}
+
+.form-title {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+/* Diseño de cuadrícula de 1 SOLA COLUMNA */
+.form-grid-single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* Grupos de campos (etiqueta + input) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Estilos de inputs y selects */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+/* Ajuste específico para el Textarea */
+.text-area {
+  resize: vertical; /* Permite al usuario estirar la caja solo hacia abajo */
+}
+
+/* Área de botones al final del formulario */
+.form-actions {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Botones genéricos y específicos */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #004494;
+}

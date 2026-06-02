@@ -1,0 +1,190 @@
+/* Contenedores principales */
+.page-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+}
+
+.card-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Encabezado */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: #0056b3;
+  margin: 0;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* Formulario emergente */
+.form-container {
+  background-color: #f1f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #b8daff;
+  margin-bottom: 20px;
+}
+
+.form-title {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+.form-actions {
+  grid-column: span 2;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Estilos de la Tabla Manual */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #0056b3;
+  color: white;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.custom-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.custom-table tbody tr {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.empty-table {
+  padding: 20px !important;
+  text-align: center;
+  color: #777 !important;
+  font-style: italic;
+}
+
+/* Botones */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #004494;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

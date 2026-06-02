@@ -1,41 +1,45 @@
-<div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<div class="card-container">
   
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <h2 style="color: #0056b3; margin: 0;">{{ titulo }}</h2>
-    <button (click)="onNuevo()" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+  <div class="table-header">
+    <h2 class="table-title">{{ titulo }}</h2>
+    <button (click)="onNuevo()" class="btn btn-success">
       {{ textoBotonNuevo }}
     </button>
   </div>
 
-  <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+  <hr class="divider">
 
-  <table style="width: 100%; border-collapse: collapse; text-align: left;">
-    <thead>
-      <tr style="background-color: #0056b3; color: white;">
-        <th *ngFor="let col of columnas" style="padding: 12px; border: 1px solid #ddd;">
-          {{ col.encabezado }}
-        </th>
-        <th style="padding: 12px; border: 1px solid #ddd;">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of datos" style="background-color: #f9f9f9; border-bottom: 1px solid #eee;">
+  <div class="table-responsive">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columnas">
+            {{ col.encabezado }}
+          </th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of datos">
+          
+          <td *ngFor="let col of columnas">
+            {{ item[col.llave] }}
+          </td>
+          
+          <td class="action-cell">
+            <button (click)="onEditar(item)" class="btn btn-warning btn-sm">Editar</button>
+            <button (click)="onEliminar(item)" class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
+          
+        </tr>
         
-        <td *ngFor="let col of columnas" style="padding: 12px; border: 1px solid #ddd;">
-          {{ item[col.llave] }}
-        </td>
-        
-        <td style="padding: 12px; border: 1px solid #ddd;">
-          <button (click)="onEditar(item)" style="background-color: #ffc107; color: #333; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-right: 5px;">Editar</button>
-          <button (click)="onEliminar(item)" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Eliminar</button>
-        </td>
-      </tr>
-      
-      <tr *ngIf="datos.length === 0">
-        <td [attr.colspan]="columnas.length + 1" style="padding: 20px; text-align: center; color: #777;">
-          No hay registros disponibles.
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <tr *ngIf="datos.length === 0">
+          <td [attr.colspan]="columnas.length + 1" class="empty-table">
+            No hay registros disponibles.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
 </div>

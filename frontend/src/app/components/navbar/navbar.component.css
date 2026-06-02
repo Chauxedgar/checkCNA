@@ -7,7 +7,13 @@
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.logo { font-weight: bold; font-size: 1.2rem; }
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer; /* <--- Esta es la línea mágica que hace aparecer la manito */
+  transition: opacity 0.2s ease;
+  user-select: none; /* Evita que el texto se seleccione accidentalmente */
+}
 .btn-logout {
   background-color: #dc3545;
   color: white;

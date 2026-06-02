@@ -1,0 +1,145 @@
+/* Contenedor principal de la página */
+.survey-page {
+  min-height: 100vh;
+  background-color: #f4f7f6;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Tarjeta central del formulario */
+.survey-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ESTILOS DE LA PANTALLA DE ÉXITO --- */
+.success-container {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.success-title {
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.success-text {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #004494;
+}
+
+/* --- ESTILOS DEL CUESTIONARIO --- */
+.survey-header {
+  border-bottom: 2px solid #0056b3;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.survey-title {
+  color: #0056b3;
+  margin: 0;
+}
+
+.survey-subtitle {
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+.estamento-label {
+  font-weight: bold;
+}
+
+/* Estado vacío (sin preguntas) */
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+/* Tarjetas individuales de preguntas */
+.question-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.question-text {
+  margin-top: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Opciones de respuesta (Likert) */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.option-label:hover {
+  color: #0056b3;
+}
+
+.option-input {
+  margin-right: 12px;
+  transform: scale(1.2);
+}
+
+/* Botón final de envío */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.btn-submit:disabled {
+  background-color: #8fdfa3;
+  cursor: not-allowed;
+}
